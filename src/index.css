@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+@theme {
+  /* === NUEVA PALETA - RÚSTICO-INDUSTRIAL PARRILLERO === */
+  --color-carbon: #1A1A1A;
+  --color-carbon-deep: #0F0F0F;
+  --color-carbon-2: #262626;
+  --color-carbon-3: #333333;
+  --color-brasa: #C44536;
+  --color-brasa-dark: #9A3325;
+  --color-brasa-light: #D85A4B;
+  --color-fuego: #E87722;
+  --color-fuego-dark: #B85A14;
+  --color-fuego-light: #F2994A;
+  --color-wood: #8B7355;
+  --color-wood-dark: #5C4A33;
+  --color-wood-light: #A89172;
+  --color-acero: #4A4A4A;
+  --color-acero-light: #6B6B6B;
+  --color-hueso: #F5F5F0;
+  --color-hueso-2: #E8E6DD;
+
+  --font-display: "Bebas Neue", "Oswald", "Impact", sans-serif;
+  --font-sans: "Inter", "Roboto", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #1A1A1A;
+  color: #F5F5F0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.03em;
+  font-weight: 400;
+}
+
+/* === GRADIENTES DE BRASA / FUEGO === */
+.bg-fuego-gradient {
+  background: linear-gradient(135deg, #C44536 0%, #E87722 55%, #F2994A 100%);
+}
+.bg-fuego-gradient-hover:hover {
+  background: linear-gradient(135deg, #9A3325 0%, #B85A14 55%, #E87722 100%);
+}
+
+.text-fuego-gradient {
+  background: linear-gradient(135deg, #C44536 0%, #E87722 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glow brasa para botones principales */
+.btn-fuego {
+  background: linear-gradient(135deg, #C44536 0%, #E87722 100%);
+  color: #0F0F0F;
+  border: 2px solid transparent;
+  box-shadow:
+    0 0 0 1px rgba(232, 119, 34, 0.3),
+    0 10px 30px -8px rgba(196, 69, 54, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.1);
+}
+.btn-fuego:hover {
+  background: linear-gradient(135deg, #9A3325 0%, #B85A14 100%);
+  box-shadow:
+    0 0 0 1px rgba(232, 119, 34, 0.6),
+    0 14px 40px -8px rgba(196, 69, 54, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* === PULSE WHATSAPP CON BRASA === */
+@keyframes pulse-brasa {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(232, 119, 34, 0.7),
+      0 10px 30px -5px rgba(196, 69, 54, 0.6);
+  }
+  70% {
+    box-shadow:
+      0 0 0 20px rgba(232, 119, 34, 0),
+      0 10px 30px -5px rgba(196, 69, 54, 0.6);
+  }
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(232, 119, 34, 0),
+      0 10px 30px -5px rgba(196, 69, 54, 0.6);
+  }
+}
+
+.whatsapp-pulse {
+  animation: pulse-brasa 2.2s infinite;
+}
+
+/* === TEXTURAS SUTILES === */
+
+/* Acero cepillado */
+.bg-acero-texture {
+  background-color: #1A1A1A;
+  background-image:
+    linear-gradient(135deg, rgba(74, 74, 74, 0.25) 0%, rgba(26, 26, 26, 0.9) 100%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(107, 107, 107, 0.05) 0px,
+      rgba(107, 107, 107, 0.05) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+}
+
+/* Madera quemada oscura */
+.bg-madera-texture {
+  background-color: #3A2B1F;
+  background-image:
+    linear-gradient(180deg, rgba(15, 15, 15, 0.7) 0%, rgba(26, 26, 26, 0.85) 100%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(92, 74, 51, 0.35) 0px,
+      rgba(92, 74, 51, 0.35) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(139, 115, 85, 0.06) 0px,
+      rgba(139, 115, 85, 0.06) 1px,
+      transparent 1px,
+      transparent 14px
+    );
+}
+
+/* Carbón con brasas */
+.bg-carbon-brasas {
+  background-color: #1A1A1A;
+  background-image:
+    radial-gradient(ellipse 600px 300px at 20% 20%, rgba(196, 69, 54, 0.12), transparent 60%),
+    radial-gradient(ellipse 500px 250px at 80% 80%, rgba(232, 119, 34, 0.10), transparent 60%),
+    radial-gradient(ellipse 300px 200px at 50% 50%, rgba(196, 69, 54, 0.05), transparent 70%);
+}
+
+/* Ember glow at bottom of hero */
+.bg-ember-glow {
+  background: radial-gradient(ellipse 100% 60% at 50% 100%, rgba(232, 119, 34, 0.35) 0%, rgba(196, 69, 54, 0.2) 35%, transparent 70%);
+}
+
+/* Star rating con nuevo color */
+.star-filled {
+  color: #E87722;
+}
+
+/* Custom scrollbar - acero + brasa */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #0F0F0F;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #C44536 0%, #E87722 100%);
+  border-radius: 0;
+  border: 2px solid #0F0F0F;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #9A3325 0%, #B85A14 100%);
+}
+
+/* Divisor de fuego */
+.fire-divider {
+  height: 4px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    #C44536 20%,
+    #E87722 50%,
+    #C44536 80%,
+    transparent 100%
+  );
+  border: 0;
+  margin: 0;
+  box-shadow: 0 0 20px rgba(232, 119, 34, 0.4);
+}
+
+/* Card hover industrial */
+.card-industrial {
+  background: linear-gradient(180deg, #262626 0%, #1A1A1A 100%);
+  border: 2px solid #333333;
+  box-shadow:
+    0 4px 10px -2px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: all 0.3s ease;
+}
+.card-industrial:hover {
+  border-color: #E87722;
+  box-shadow:
+    0 20px 40px -10px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(232, 119, 34, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateY(-4px);
+}
+
+/* Badge brasa */
+.badge-brasa {
+  background: linear-gradient(135deg, #C44536 0%, #E87722 100%);
+  color: #0F0F0F;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(196, 69, 54, 0.5);
+}
+
+/* Button outline rústico */
+.btn-outline-rustico {
+  background: rgba(26, 26, 26, 0.6);
+  border: 2px solid #F5F5F0;
+  color: #F5F5F0;
+  backdrop-filter: blur(6px);
+  transition: all 0.2s ease;
+}
+.btn-outline-rustico:hover {
+  border-color: #E87722;
+  color: #E87722;
+  background: rgba(26, 26, 26, 0.8);
+}
+
+/* Animación brasas flotantes */
+@keyframes float-ember {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  15% { opacity: 0.8; }
+  100% { transform: translateY(-200px) scale(0.3); opacity: 0; }
+}
