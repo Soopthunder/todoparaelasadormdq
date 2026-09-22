@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import LogoMark from "./components/LogoMark";
 
 /* ============================================================
    Constants
@@ -142,27 +143,43 @@ const Stars = ({ rating = 5 }: { rating?: number }) => (
 );
 
 /* ============================================================
-   Logo
+   Logo — sello oficial (vector) + bajada
    ============================================================ */
-const Logo = () => (
-  <a href="#inicio" className="flex items-center gap-3 group">
-    <div className="relative">
-      <div className="w-11 h-11 md:w-14 md:h-14 rounded-md btn-fuego flex items-center justify-center">
-        <svg viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7 md:w-8 md:h-8 text-carbon-deep">
-          <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
-        </svg>
-      </div>
-    </div>
-    <div className="flex flex-col leading-none">
-      <span className="font-display text-xl md:text-3xl tracking-[0.04em] text-hueso">
-        TODO PARA EL ASADOR
-      </span>
-      <span className="font-display text-fuego text-base md:text-xl tracking-[0.4em] font-bold">
-        MDQ
-      </span>
-    </div>
-  </a>
-);
+const Logo = ({ size = "md" }: { size?: "md" | "lg" }) => {
+  const isLg = size === "lg";
+  return (
+    <a href="#inicio" className="flex items-center gap-3 md:gap-4 group">
+      <LogoMark
+        uid={isLg ? "logo-footer" : "logo-header"}
+        className={`flex-shrink-0 drop-shadow-[0_6px_18px_rgba(0,0,0,0.7)] transition-transform duration-300 group-hover:rotate-[-3deg] ${
+          isLg ? "w-24 h-24 md:w-32 md:h-32" : "w-14 h-14 md:w-[74px] md:h-[74px]"
+        }`}
+      />
+      {isLg ? (
+        <div className="flex flex-col leading-tight">
+          <span className="font-display text-2xl md:text-3xl tracking-[0.08em] text-hueso">
+            LOS MEJORES ARTÍCULOS
+          </span>
+          <span className="font-display text-lg md:text-xl tracking-[0.25em] text-fuego">
+            PARA EL ASADOR ARGENTINO
+          </span>
+          <span className="mt-2 text-hueso/60 text-sm font-medium max-w-xs">
+            Fabricación propia · Mar del Plata · Envíos a todo el país
+          </span>
+        </div>
+      ) : (
+        <div className="hidden sm:flex flex-col leading-tight border-l-2 border-fuego/40 pl-3">
+          <span className="font-display text-lg md:text-xl tracking-[0.14em] text-hueso leading-none">
+            LOS MEJORES ARTÍCULOS
+          </span>
+          <span className="font-display text-sm md:text-base tracking-[0.3em] text-fuego leading-none mt-1">
+            PARA EL ASADOR ARGENTINO
+          </span>
+        </div>
+      )}
+    </a>
+  );
+};
 
 /* ============================================================
    Floating WhatsApp
@@ -1014,10 +1031,11 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto px-4 md:px-6">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
         <div className="md:col-span-2">
-          <Logo />
-          <p className="mt-5 text-hueso/65 text-sm md:text-base leading-relaxed max-w-md font-medium">
-            Los mejores artículos para el asador argentino. Fabricación propia en
-            Mar del Plata. Envíos a todo el país. Herrería gourmet desde hace más de 5 años.
+          <Logo size="lg" />
+          <p className="mt-6 text-hueso/65 text-sm md:text-base leading-relaxed max-w-md font-medium">
+            Venta y fabricación de asadores, discos de arado, parrillas a medida,
+            braseros, leñeros, fogoneros, tablas, kits parrilleros y herrería gourmet
+            en Mar del Plata. Envíos a todo el país.
           </p>
           <p className="mt-4 font-display text-fuego text-lg tracking-widest">
             · ACERO · FUEGO · SABOR ·
