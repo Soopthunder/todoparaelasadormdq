@@ -1,5 +1,14 @@
 import { useState, useEffect } from "react";
 import LogoMark from "./components/LogoMark";
+import { fabricacionPhoto } from "./assets/fabricacion-photo";
+import {
+  discosPhoto,
+  parrillaPhoto,
+  braseroPhoto,
+  lenieroPhoto,
+  tablasPhoto,
+  herreriaPhoto,
+} from "./assets/products-photos";
 
 /* ============================================================
    Constants
@@ -23,20 +32,20 @@ const IMG = {
   hero: U("photo-1555939594-58d7cb561ad1", 2000),
   // Parrilla con brasas rojas
   heroAlt: U("photo-1529193591184-b1d58069ecdd", 2000),
-  // Disco de arado / skillet al fuego
-  disco: U("photo-1504754524776-8f4f37790ca0", 900),
-  // Parrilla con carne
-  parrilla: U("photo-1544025162-d76694265947", 900),
-  // Fogonero / brasas
-  brasero: U("photo-1473973266408-ed4e27abdd47", 900),
-  // Leña cortada
-  leniero: U("photo-1513530176992-0cf39c4cbed4", 900),
-  // Tabla con cuchillos
-  tablas: U("photo-1558030006-450675393462", 900),
-  // Herrería / metal
-  herreria: U("photo-1594668729246-4b48f1dd1cee", 900),
-  // Herrero soldando
-  fabricacion: U("photo-1504307651254-35680f356dfd", 1200),
+  // Disco de arado (foto real del cliente)
+  disco: discosPhoto,
+  // Parrilla a medida (foto real del cliente)
+  parrilla: parrillaPhoto,
+  // Brasero / fogonero (foto real del cliente)
+  brasero: braseroPhoto,
+  // Leñero / chulengo (foto real del cliente)
+  leniero: lenieroPhoto,
+  // Tabla y kit parrillero (foto real del cliente)
+  tablas: tablasPhoto,
+  // Herrería gourmet (foto real del cliente)
+  herreria: herreriaPhoto,
+  // Asado al fuego con embutidos (foto real del cliente)
+  fabricacion: fabricacionPhoto,
 };
 
 /* ============================================================
@@ -573,7 +582,7 @@ const FabricacionSection = () => (
           <div className="relative rounded-md overflow-hidden border-4 border-acero/50 shadow-2xl shadow-black/80">
             <img
               src={IMG.fabricacion}
-              alt="Herrero soldando una parrilla a medida"
+              alt="Asado al fuego con embutidos en parrilla artesanal"
               loading="lazy"
               className="w-full h-[420px] md:h-[560px] object-cover"
             />
