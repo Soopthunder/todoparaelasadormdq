@@ -199,7 +199,7 @@ const FloatingWhatsApp = () => (
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Contactar por WhatsApp"
-    className="fixed bottom-5 right-5 z-[90] btn-fuego rounded-full w-16 h-16 md:w-[72px] md:h-[72px] flex items-center justify-center whatsapp-pulse"
+    className="hidden md:flex fixed bottom-5 right-5 z-[90] btn-fuego rounded-full w-[72px] h-[72px] items-center justify-center whatsapp-pulse"
   >
     <IconWhatsApp className="w-8 h-8 md:w-9 md:h-9 text-carbon-deep" />
   </a>
